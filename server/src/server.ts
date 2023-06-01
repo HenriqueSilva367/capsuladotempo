@@ -1,9 +1,14 @@
 import fastify from 'fastify';
+import cors from '@fastify/cors';
 import { memoriesRoute } from './routes/memories';
 
 const app = fastify();
 
 app.register(memoriesRoute)
+
+app.register(cors, {
+  origin: true,
+})
 
 app.listen({
   port: 3333,
